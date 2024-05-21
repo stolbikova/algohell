@@ -14,8 +14,6 @@ var minDepth = function (root) {
   const left = minDepth(root.left);
   const right = minDepth(root.right);
 
-  // If one of the subtrees is empty, you should not consider it for finding the minimum depth.
-  // Instead, you take the depth of the subtree that exists plus 1 (for the current node).
   if (root.left === null || root.right === null) {
     return Math.max(left, right) + 1;
   }
