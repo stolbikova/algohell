@@ -21,7 +21,7 @@ var addBinary = function (a, b) {
       j--;
     }
     carry = Math.floor(sum / 2); //if sum exceeds the capacity of single bit
-    res = (sum % 2).toString() + res;
+    res += (sum % 2).toString();
   }
   return res;
 };
