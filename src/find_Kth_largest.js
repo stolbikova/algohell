@@ -5,6 +5,7 @@ class QElement {
   }
 }
 
+// max length of this data structure is k where is a second arg in initial function
 class MinPriorityQueue {
   constructor() {
     this.items = [];
@@ -12,25 +13,30 @@ class MinPriorityQueue {
 
   enqueue(element, priority) {
     let qElement = new QElement(element, priority);
+    let added = false;
 
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].priority > qElement.priority) {
         this.items.splice(i, 0, qElement);
-        return;
+        added = true;
+        break;
       }
     }
 
-    // if the element has the highest priority
-    this.items.push(qElement);
+    if (!added) {
+      this.items.push(qElement);
+    }
   }
-  dequeue() {
-    if (this.size() === 0) return;
 
+  dequeue() {
+    if (this.size() === 0) return null;
     return this.items.shift();
   }
+
   size() {
     return this.items.length;
   }
+
   front() {
     if (this.size() === 0) return null;
     return this.items[0];
@@ -40,7 +46,7 @@ class MinPriorityQueue {
 function findKthLargest(nums, k) {
   let minHeap = new MinPriorityQueue();
   nums.forEach((num) => {
-    minHeap.enqueue(num);
+    minHeap.enqueue(num, num);
     if (minHeap.size() > k) {
       minHeap.dequeue();
     }
@@ -48,4 +54,5 @@ function findKthLargest(nums, k) {
   return minHeap.front().element;
 }
 
-console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2));
+// Example usage:
+console.log(findKthLargest([3, 2, 1, 5, 6, 4], 2)); // Output: 5

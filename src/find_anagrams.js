@@ -41,3 +41,4 @@ function findAnagrams(s, p) {
 const s = "cbaebabacd";
 const p = "abc";
 console.log(findAnagrams(s, p)); // Output: [0, 6]
+//  cba e

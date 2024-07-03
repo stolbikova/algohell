@@ -10,7 +10,7 @@ var removeDuplicates = function (nums) {
 };
 
 // Test case
-let nums = [1, 1, 2];
+let nums = [1, 1, 1, 2, 2];
 let len = removeDuplicates(nums);
 console.log(len); // Output: 2
 
