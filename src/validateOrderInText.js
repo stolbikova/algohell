@@ -1,4 +1,7 @@
 function validateOrderInText(text, orderStr) {
+  if (orderStr === "") return true;
+  if (text === "" && orderStr) return false;
+
   const orderMap = new Map();
   for (let i = 0; i < orderStr.length; i++) {
     orderMap.set(orderStr[i], i);
@@ -25,3 +28,5 @@ function validateOrderInText(text, orderStr) {
 console.log(validateOrderInText("aaaabbbbcccc", "acb")); // returns false
 
 console.log(validateOrderInText("aaaaccccbbbb", "acb")); // return true
+
+console.log(validateOrderInText("", ""));
