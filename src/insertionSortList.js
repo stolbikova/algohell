@@ -13,7 +13,7 @@ function insertionSortList(head) {
   let current = head;
 
   while (current) {
-    // At each iteration, we remove 'current' from the input list and find its position in the sorted part.
+    //  At each iteration, we remove 'current' from the input list and find its position in the sorted part.
     let prev = dummy;
     while (prev.next && prev.next.val < current.val) {
       prev = prev.next;
