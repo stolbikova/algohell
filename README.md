@@ -7,5 +7,5 @@ This repository contains solutions to various algorithmic problems. The goal is 
 Clone the repository:
 
 ```bash
-git clone https://github.com/stolbikova/algohell.git
+ git clone https://github.com/stolbikova/algohell.git
 ```
