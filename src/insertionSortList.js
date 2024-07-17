@@ -8,7 +8,7 @@ class ListNode {
 function insertionSortList(head) {
   if (!head) return null;
 
-  // Create a dummy node to act as the starting point of the sorted list
+  //  Create a dummy node to act as the starting point of the sorted list
   let dummy = new ListNode(0);
   let current = head;
 
