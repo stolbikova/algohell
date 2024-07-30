@@ -7,8 +7,6 @@ function evenBack(str) {
   const arr = str.split(" ");
   const filtered = arr.filter((word) => isWord(word));
 
-  console.log("--> ", filtered);
-
   return arr
     .map((word) => {
       // find the index in filetred array
