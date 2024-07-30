@@ -3,15 +3,18 @@ function evenBack(str) {
     return init.split("").reverse().join("");
   };
 
+  const isWord = (word) => /^[A-Za-zА-Яа-яЁё]+$/.test(word);
   const arr = str.split(" ");
-  const filtered = arr.filter((word) => /^[A-Za-zА-Яа-яЁё]+$/.test(word));
+  const filtered = arr.filter((word) => isWord(word));
+
+  console.log("--> ", filtered);
 
   return arr
     .map((word) => {
       // find the index in filetred array
       const index = filtered.findIndex((item) => word === item);
 
-      return index % 2 !== 0 ? revert(word) : word;
+      return index % 2 !== 0 && isWord(word) ? revert(word) : word;
     })
     .join(" ");
 }
