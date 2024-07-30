@@ -3,12 +3,11 @@ function evenBack(str) {
     return init.split("").reverse().join("");
   };
 
-  let prevInd = 0;
   const arr = str.split(" ");
   const filtered = arr.filter((word) => /^[A-Za-zА-Яа-яЁё]+$/.test(word));
 
   return arr
-    .map((word, ind) => {
+    .map((word) => {
       // find the index in filetred array
       const index = filtered.findIndex((item) => word === item);
 
