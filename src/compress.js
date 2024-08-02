@@ -3,30 +3,40 @@
  * @return {number}
  */
 var compress = function (chars) {
-  let prev = chars[0];
-  let lastIndex = 1;
+  let writeIndex = 0;
+  let i = 0;
 
-  for (let i = 1; i < chars.length; i++) {
-    const char = chars[i];
+  while (i < chars.length) {
+    let char = chars[i];
+    let count = 0;
 
-    if (char === prev) {
-      if (!Number.isNaN(parseInt(chars[i - 1], 10))) {
-        chars[i - 1] = (parseInt(chars[i - 1], 10) + 1).toString();
-      } else {
-        chars[i] = "2";
-        lastIndex++;
-      }
-    } else {
-      lastIndex++;
+    // Count occurrences of the current character
+    while (i < chars.length && chars[i] === char) {
+      i++;
+      count++;
     }
-    prev = char;
+
+    // Write the character to the writeIndex
+    chars[writeIndex] = char;
+    writeIndex++;
+
+    // Write the count to the writeIndex if greater than 1
+    if (count > 1) {
+      const countStr = count.toString();
+      for (let j = 0; j < countStr.length; j++) {
+        chars[writeIndex] = countStr[j];
+        writeIndex++;
+      }
+    }
   }
 
-  return lastIndex;
+  // Trim the array to the new length
+  chars.length = writeIndex;
+
+  return writeIndex;
 };
 
-console.log(compress(["a", "a", "b", "b", "c", "c", "c"]));
-// doesn't work with this test case
+console.log(compress(["a", "a", "b", "b", "c", "c", "c"])); // Output: 6, modifies chars to ["a","2","b","2","c","3"]
 console.log(
   compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"])
-);
+); // Output: 4, modifies chars to ["a","b","1","2"]
