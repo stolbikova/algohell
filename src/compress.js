@@ -26,4 +26,7 @@ var compress = function (chars) {
 };
 
 console.log(compress(["a", "a", "b", "b", "c", "c", "c"]));
-// ["a","2","b","2","c","3"]
+// doesn't work with this test case
+console.log(
+  compress(["a", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b", "b"])
+);
