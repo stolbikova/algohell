@@ -9,12 +9,12 @@ var reverseVowels = function (s) {
     return /[AEIOU]/.test(x.toUpperCase());
   };
 
-  const reversedVowels = s.split("").filter((char) => isVowel(char));
+  const vowels = s.split("").filter((char) => isVowel(char));
 
   for (let i = 0; i < s.length; i++) {
     const char = s[i];
     if (isVowel(char)) {
-      res += reversedVowels.pop();
+      res += vowels.pop();
     } else {
       res += char;
     }
