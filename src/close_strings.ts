@@ -21,7 +21,6 @@ var closeStrings = function (word1, word2) {
     map2.set(char, map2.has(char) ? map2.get(char) + 1 : 1);
   }
 
-  // Step 3: Compare the sorted frequency arrays
   const freq1 = [...map1.values()].sort((a, b) => a - b);
   const freq2 = [...map2.values()].sort((a, b) => a - b);
 
