@@ -18,3 +18,4 @@ function productOfArray(arr) {
 }
 
 console.log(productOfArray([1, 2, 3, 4, 5])); // Expected output: [120, 60, 40, 30, 24]
+  
